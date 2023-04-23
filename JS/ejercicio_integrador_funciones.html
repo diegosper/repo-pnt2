@@ -57,8 +57,17 @@
         .filter(r => r.importe < 2500)
         .map(r => { return {numero: r.numero, importe: r.importe * 0.8, fecha: r.fecha} })
         .reduce((a,r) => (a + r.importe), 0)
-        );
+    );
 
+    //OTRA OPCIÓN
+    const importeTotal = recibos.reduce((acumulador,recibo) => {
+        if (recibo.importe < 2500) {
+            acumulador += recibo.importe * 0.8;
+        }
+        return acumulador;
+        
+    },0)
+    console.log(importeTotal);
     </script>
 
 </body>
