@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    /*
+    const recibos = [ {numero: 1000, importe: 1500, fecha: 20230320},
+    {numero: 1001, importe: 2300, fecha: 20230319},
+    {numero: 1002, importe: 2100, fecha: 20230318} ]
+    De la anterior lista de recibos, obtener en la consola del navegador:
+    ● Nueva lista ordenada por fecha de forma ascendete.
+    ● Nueva lista de recibos con importe mayor a 2100.
+    ● Nueva lista con un aumento del importe del 30%.
+    ● Suma total de importes de la lista de recibos.
+    ● Suma total de importes menores a 2500 de la lista de recibos, restando un 20% al
+    importe
+    */
+
+    const recibos = [ 
+        {numero: 1000, importe: 1500, fecha: 20230320},
+        {numero: 1001, importe: 2300, fecha: 20230319},
+        {numero: 1002, importe: 2100, fecha: 20230318} 
+    ];
+    
+    console.log(recibos);
+    //Falta que sea una lista nueva
+    //const listaPorFecha = recibos.sort((a,b) => a.fecha-b.fecha);
+    //console.log(listaPorFecha);
+
+    const listaMayor2100 = recibos.filter(r => r.importe >= 2100);
+    console.log(listaMayor2100);
+
+    const listaConAumento = recibos.map(r => {
+        return {
+            numero: r.numero, 
+            importe: r.importe * 1.3,
+            fecha: r.fecha
+        }
+    });
+    console.log(listaConAumento);
+
+    const totalRecibos = recibos.reduce((a,r) => (a + r.importe),0);
+    console.log(totalRecibos);
+
+    
+    //const listaNueva = recibos.filter(r => r.importe < 2500).map(r => { return {numero: r.numero, importe: r.importe * 0.8, fecha: r.fecha} });
+    //console.log(listaNueva);
+    //console.log(listaNueva.reduce((a,r) => (a + r.importe),0));
+    
+    console.log(recibos
+        .filter(r => r.importe < 2500)
+        .map(r => { return {numero: r.numero, importe: r.importe * 0.8, fecha: r.fecha} })
+        .reduce((a,r) => (a + r.importe), 0)
+        );
+
+    </script>
+
+</body>
+</html>
