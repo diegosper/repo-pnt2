@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+    <p style="color:red ;">{{ message1 }}</p>
+    <p :style="{color:colorVue, fontSize:fontSizeVue}">{{ message2 }}</p>
+    <!-- LAS PROPIEDADES DE VUE EN FORMATO DE OBJETO -->
+    <p>{{ listaDeLoQueSea }}</p>
+    <li v-for="loQueSea in listaDeLoQueSea">
+        <!-- FOREACH CON VUE -->
+        {{ loQueSea.id }} {{ loQueSea.nombre }}
+    </li>
+
+    <br>
+    <button v-on:click="cambiarColor">Cambiar color</button>
+    <br>
+    <button v-on:click="ordernarDesc">Ordenar de forma descendiente</button>
+
+</div>
+
+<script>
+    const { createApp } = Vue
+
+    // ES UN OBJETO!! Puedo hacer: 
+    /*
+    const objeto = createApp({ ...... })
+    */
+    createApp({
+        data() {
+            //dentro del data van todas las propiedades del objeto
+            return {
+                message1: 'Opción 1',
+                message2: 'Opción 2',
+                colorVue: 'blue',
+                fontSizeVue: '50px',
+                listaDeLoQueSea: [
+                    { id: 1, nombre: 'Diego' },
+                    { id: 2, nombre: 'Pedro' },
+                    { id: 3, nombre: 'Martin' }
+                ]
+            }
+        },
+
+        methods: {
+            cambiarColor() {
+                this.colorVue = 'green';
+            },
+            ordernarDesc(){
+                this.listaDeLoQueSea.sort((a,b) => b.id-a.id)
+            }
+
+        }
+    }).mount('#app')
+</script>
+
+</html>
