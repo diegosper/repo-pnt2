@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--
+Dada esta lista de numeros: [4,6,3,2,-3,2]
+1- Cargar esta lista en un array del objeto vue.
+2- Mostrar la lista con un li
+3- Pedir un numero y agregarlo a la lista.
+-->
+
+<body>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <p>{{ numeros }}</p>
+        <li v-for="numero in numeros">
+            {{ numero }}
+        </li>
+        <br>
+        <input type="text" value="0"> 
+        <button v-on:click="agregarNumero">Agregar número</button>
+
+
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    numeros: [4, 6, 3, 2, -3, 2]
+                }
+            },
+
+            methods: {
+                agregarNumero(){
+                    numeros.push()
+                }
+            }
+
+        }).mount('#app')
+    </script>
+
+
+</body>
+
+</html>
