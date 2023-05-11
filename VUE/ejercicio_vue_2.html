@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!--
+    Dado una lista de clientes, con id, nombre y edad:
+1- Cargar la lista de clientes en el objeto vue y mostrar la lista
+2- Pedir los datos de un cliente y con un boton, agregarlo a la lista.
+3- Bonus I : agregar un botón por cada elemento de la lista para permitir eliminar
+4- Bonus II: agregar un botón por cada elemento para permitir modificar.
+-->
+
+<body>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <h3>Participantes:</h3>
+        <li v-for="cliente in clientes">
+            {{ cliente.id }} - {{ cliente.nombre }}
+        </li>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Segundo ejercicio con VUE.JS',
+                    clientes: [
+                        {id: 1001, nombre: "Pedro", edad: 28 },
+                        {id: 1002, nombre: "Diego",edad:  31},
+                        {id: 1003, nombre: "Juan" ,edad:  22},
+                        {id: 1004, nombre: "Marcelo",edad: 29 },
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

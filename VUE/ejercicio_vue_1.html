@@ -25,7 +25,7 @@ Dada esta lista de numeros: [4,6,3,2,-3,2]
             {{ numero }}
         </li>
         <br>
-        <input type="text" value="0"> 
+        Agregar un número: <input type="number" v-model="numeroAgregar"> 
         <button v-on:click="agregarNumero">Agregar número</button>
 
 
@@ -38,13 +38,14 @@ Dada esta lista de numeros: [4,6,3,2,-3,2]
             data() {
                 return {
                     message: 'Hello Vue!',
-                    numeros: [4, 6, 3, 2, -3, 2]
+                    numeros: [4, 6, 3, 2, -3, 2],
+                    numeroAgregar: 0
                 }
             },
 
             methods: {
                 agregarNumero(){
-                    numeros.push()
+                    this.numeros.push(this.numeroAgregar)
                 }
             }
 
