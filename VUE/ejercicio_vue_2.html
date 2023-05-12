@@ -22,10 +22,27 @@
 
     <div id="app">
         <h1>{{ message }}</h1>
-        <h3>Participantes:</h3>
+        <h3>Clientes:</h3>
         <li v-for="cliente in clientes">
             {{ cliente.id }} - {{ cliente.nombre }}
+            <button style="margin-left: 20px;" v-on:click="eliminarCliente(cliente.id)">Eliminar</button>
+            <button style="margin-left: 20px;" @click="modificarCliente(cliente.id)">Modificar</button>
         </li>
+
+        <br>
+        <!--
+    <button>Agregar cliennte</button>
+-->
+        Ingrese nombre: <input type="text" v-model="nombreAgregar">
+        <br>
+        Ingrese edad: <input type="number" v-model="edadAgregar">
+        <br>
+        <button v-on:click="agregarCliente">Agregar cliente</button>
+
+
+
+
+
     </div>
 
     <script>
@@ -36,11 +53,33 @@
                 return {
                     message: 'Segundo ejercicio con VUE.JS',
                     clientes: [
-                        {id: 1001, nombre: "Pedro", edad: 28 },
-                        {id: 1002, nombre: "Diego",edad:  31},
-                        {id: 1003, nombre: "Juan" ,edad:  22},
-                        {id: 1004, nombre: "Marcelo",edad: 29 },
-                    ]
+                        { id: 1001, nombre: "Pedro", edad: 28 },
+                        { id: 1002, nombre: "Diego", edad: 31 },
+                        { id: 1003, nombre: "Juan", edad: 22 },
+                        { id: 1004, nombre: "Marcelo", edad: 29 },
+                    ],
+                    nombreAgregar: "",
+                    edadAgregar: 0,
+
+                }
+            },
+
+            methods: {
+                agregarCliente() {
+                    const indexClientes = this.clientes.length - 1;
+                    indexClientes < 0 ? idAgregar = 1001 : idAgregar = this.clientes[indexClientes].id + 1;
+                    this.clientes.push(
+                        { id: idAgregar, nombre: this.nombreAgregar, edad: this.edadAgregar }
+                    )
+                },
+
+                eliminarCliente(clienteId) {
+                    //console.log(this.clientes.find(c => c.id === clienteId));
+                    this.clientes.splice(
+                        this.clientes.indexOf(
+                            this.clientes.find(c => c.id === clienteId)
+                        ), 1
+                    );
                 }
             }
         }).mount('#app')
