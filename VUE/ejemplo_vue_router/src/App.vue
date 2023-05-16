@@ -1,19 +1,21 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
+import { IonApp, IonHeader } from "@ionic/vue";
+export default {
+  components: { IonApp, IonHeader },
+};
 </script>
 
 <template>
-  <header>
-    <div>
-      <nav>
-        <RouterLink to="/">Home</RouterLink> | 
-        <RouterLink to="/about">About</RouterLink> |  
+  <ion-app>
+      <ion-header>
+        <RouterLink to="/">Home</RouterLink> |
+        <RouterLink to="/about">About</RouterLink> |
         <RouterLink to="/system">System</RouterLink>
-      </nav>
-    </div>
+      </ion-header>
+      
     <RouterView />
-  </header>
-
+  </ion-app>
 </template>
 
 <style></style>

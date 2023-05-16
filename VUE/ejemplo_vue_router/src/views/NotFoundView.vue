@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <ion-page>
     <h3>NOT FOUND: ruta no encontrada.</h3>
-  </div>
+  </ion-page>
 </template>
 
 <script>
+import { IonPage } from "@ionic/vue";
 export default {
-
-}
+  components: { IonPage },
+};
 </script>
 
 <style>
