@@ -24,4 +24,8 @@ app.use(router)
 
 router.isReady().then(() => {
     app.mount('#app');
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> e6906fdeec3e51e554731af853a53c5c2dbaa841
